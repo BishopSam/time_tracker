@@ -26,6 +26,16 @@ class _EmailSiginInFormState extends State<EmailSiginInForm> {
   bool _submitted = false;
   bool _isLoading = false;
 
+  @override
+  void dispose(){
+    super.dispose();
+
+    _emailController.dispose();
+    _passwordController.dispose();
+    _emailFocusNode.dispose();
+    _passwordFocusNode.dispose();
+  }
+
   List<Widget> _buildChildren() {
     final primaryText =
         _formType == EmailSignInFormType.signIn ? 'Sign In' : 'Create account';
