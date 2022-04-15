@@ -3,36 +3,35 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:time_tracker_flutter_course/app/services/auth.dart';
 
-class SignInBloc{
-
+class SignInBloc {
   SignInBloc({required this.auth});
   final AuthBase auth;
   final StreamController<bool> _isLoadingController = StreamController<bool>();
 
   Stream<bool> get isLoadingStream => _isLoadingController.stream;
 
-  void dispose () {
+  void dispose() {
     _isLoadingController.close();
   }
 
   void _setIsLoading(bool isLoading) => _isLoadingController.add(isLoading);
 
-  Future<User?> _signIn(Future<User?> Function() signInMethod) async{
+  Future<User?> _signIn({required Future<User?> Function() signInMethod}) async {
     try {
       _setIsLoading(true);
       return await signInMethod();
     } catch (e) {
-      rethrow;
-    } finally{
       _setIsLoading(false);
+      rethrow;
     }
   }
 
-  Future<User?> signInAnonymously() async => await _signIn(auth.signInAnonymously);
+  Future<User?> signInAnonymously() async =>
+      await _signIn(signInMethod: auth.signInAnonymously);
 
-  Future<User?> signInWithGoogle() async => await _signIn(auth.signInWithGoogle);
+  Future<User?> signInWithGoogle() async =>
+      await _signIn(signInMethod: auth.signInWithGoogle);
 
-  Future<User?> signInWithFacebook() async => await _signIn(auth.signInWithFacebook);  
-  
-
+  Future<User?> signInWithFacebook() async =>
+      await _signIn(signInMethod: auth.signInWithFacebook);
 }
