@@ -1,13 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:time_tracker_flutter_course/app/models/email_sign_model.dart';
+import 'package:time_tracker_flutter_course/app/notify_managers/email_sign_manager.dart';
 import 'package:time_tracker_flutter_course/app/services/auth.dart';
 import 'package:time_tracker_flutter_course/common_widgets/form_submit_button.dart';
 import 'package:time_tracker_flutter_course/app/sign_in/validators.dart';
 import 'package:time_tracker_flutter_course/common_widgets/show_exception_dialog.dart';
-
-
 
 class EmailSiginInForm extends StatefulWidget with EmailAndPasswordValidators {
   @override
@@ -25,7 +23,7 @@ class _EmailSiginInFormState extends State<EmailSiginInForm> {
   bool _isLoading = false;
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
 
     _emailController.dispose();
