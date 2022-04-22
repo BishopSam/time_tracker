@@ -16,3 +16,10 @@ class EmailAndPasswordValidators {
   final String invalidEmailText = 'Email can\'t be empty';
   final String invalidPasswordText = 'Password can\'t be empty';
 }
+
+class JobandRatePerHourValidators {
+  final StringValidator jobNameValidator = NonEmptystringValidator();
+  final StringValidator ratePerHourValidator = NonEmptystringValidator();
+  final String invalidJobNameText = 'Job name can\'t be empty';
+  final String invalidRatePerHourText = 'Rate per hour can\'t be empty';
+}

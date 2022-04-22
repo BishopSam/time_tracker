@@ -25,7 +25,7 @@ class LandingPage extends StatelessWidget {
     return Provider<Database>(
       create: (_) => FirebaseDatabase(uid: user.uid),
       child: JobsPage(),
-      
+
     );
   }
   return Scaffold(
