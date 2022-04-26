@@ -4,7 +4,7 @@ class EmptyContent extends StatelessWidget {
   const EmptyContent({
     Key? key,
     this.title = 'Nothing here, yet.',
-    this.message = 'Add a new job to get started',
+    this.message = 'Add a new item to get started',
   }) : super(key: key);
   final String title;
   final String message;

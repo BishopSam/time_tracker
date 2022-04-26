@@ -8,7 +8,7 @@ class ListItemsBuilder<T> extends StatelessWidget {
       {Key? key, required this.snapshot, required this.itemBuilder})
       : super(key: key);
   final AsyncSnapshot<List> snapshot;
-  final ItemWidgetBuilder itemBuilder;
+  final ItemWidgetBuilder<T> itemBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class ListItemsBuilder<T> extends StatelessWidget {
     );
   }
 
-  Widget _buildList(List items) {
+  Widget _buildList(items) {
     return ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) => itemBuilder(context, items[index]));

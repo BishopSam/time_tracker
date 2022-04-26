@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:time_tracker_flutter_course/app/models/jobs_model.dart';
+import 'package:time_tracker_flutter_course/app/models/job.dart';
 
 class JobListTile extends StatelessWidget {
   const JobListTile({Key? key, required this.job, required this.onTap})
@@ -10,7 +10,7 @@ class JobListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3),
       child: ListTile(
         tileColor: Colors.white,
         shape: RoundedRectangleBorder(
